@@ -1,4 +1,4 @@
-# Long Short-Term Memory (LSTM) for Modeling COVID-19 cases in Tokyo, Japan
+# Long Short-Term Memory (LSTM) for Modeling COVID-19 Cases in Tokyo, Japan
 
 This repository contains a Python implementation of an LSTM, a type of Recurrent Neural Network first introduced by Hochreiter & Schmidhuber (1997) [1] and further modified by Gers *et al.* (2000) [2], to model COVID-19 cases in Tokyo, Japan. See `LSTM_theory.pdf` for implementation details.
 
