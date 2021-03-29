@@ -3,7 +3,7 @@
 This repository contains a Python implementation of an LSTM, a type of Recurrent Neural Network first introduced by Hochreiter & Schmidhuber (1997) [1] and further modified by Gers *et al.* (2000) [2], to model COVID-19 cases in Tokyo, Japan. See `LSTM_theory.pdf` for implementation details.
 
 ## Files
-- `src/lstm.py`: Python code
+- `src/*`: Python code
 - `LSTM_theory.pdf`: Details of LSTM model
 - `plots/*`: LSTM predictions & training loss visualized
 - `data/*`: Training & validation data sets
