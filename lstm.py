@@ -918,7 +918,8 @@ def hyperparam_montecarlo_lr(data, num_trials, patience, filename):
 
 def main():
     # seed = np.random.randint(1e4)
-    seed = 1893
+    # seed = 1893
+    seed = 877
     np.random.seed(seed)
     print("Seed: ", seed)
     cycle = "train"
@@ -933,12 +934,15 @@ def main():
     # =============================================
     # UNCOMMENT FOR TRAINING
     scaled, y_min, y_max = MinMaxScaling(data)
+    # nx = 24
+
     nx = 24
     x = gen_input(scaled, nx)
     y = gen_labels(scaled, x, 1)
     reverted_y = reverse_MinMax(y, y_min, y_max)
 
     na = 118
+    # na = 94
     model = LSTM(na, x, epochs = 1000, lr = 0.001, optimizer = "adam")
     losses, params, best_y_pred, epoch = model.train(y, 10)
     plot_loss(losses)
@@ -973,25 +977,24 @@ def main():
     # ============================
     ## For TESTING
 
-    # testdata = getdata("test0829_0930.txt")
-    # scaled_testdata, testmin, testmax = MinMaxScaling(testdata)
-    # x_test = gen_input(scaled_testdata, nx)
-    # y_test = gen_labels(scaled_testdata, x_test, 1)
-    # test_y_pred, test_loss = model.test(x_test, y_test)
-    # reverted_y_test = reverse_MinMax(y_test, testmin ,testmax)
-    # reverted_test_y_pred = reverse_MinMax(test_y_pred, testmin, testmax)
-    # test_mse = gen_mse(reverted_y_test, reverted_test_y_pred)
-    # plot_y(reverted_y_test, reverted_test_y_pred, "LSTM_test_predictions_Oct30_4.pdf")
-    # print("Test MSE:", test_mse)
+    testdata = getdata("data1101_1208.txt")
+    scaled_testdata, testmin, testmax = MinMaxScaling(testdata)
+    x_test = gen_input(scaled_testdata, nx)
+    y_test = gen_labels(scaled_testdata, x_test, 1)
+    test_y_pred, test_loss = model.test(x_test, y_test)
+    reverted_y_test = reverse_MinMax(y_test, testmin ,testmax)
+    reverted_test_y_pred = reverse_MinMax(test_y_pred, testmin, testmax)
+    test_mse = gen_mse(reverted_y_test, reverted_test_y_pred)
+    plot_y(reverted_y_test, reverted_test_y_pred, "LSTM_test_predictions_Jan20.pdf")
+    print("Test MSE:", test_mse)
 
-    #print("Test MSE:", test_mse)
+    # print("Test MSE:", test_mse)
     
     # ==============================
 
 if __name__ == "__main__":
     start = time.time()
     main()
-    #print(sigmoid(-1000000))
     end = time.time()
     print("Ran in ", str(round(end - start, 4)), " seconds")
 
