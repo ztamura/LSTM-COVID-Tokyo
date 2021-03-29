@@ -2,6 +2,8 @@
 Full scratch Python implementation of a Long Short Term Memory (LSTM) model
 DOES NOT USE deep learning libraries such as Tensorflow or Keras
 
+See utils.py for helper functions used to preprocess data
+
 Author: Zen Tamura
 
 Dependencies:
