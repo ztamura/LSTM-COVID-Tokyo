@@ -925,10 +925,10 @@ def main():
     cycle = "train"
     ## Training data
     if cycle == "train":
-        data = getdata("data0124_1031.txt")
+        data = getdata("../data/data0124_1031.txt")
     # Dev data
     if cycle == "dev":
-        data = getdata("data1101_1208.txt")
+        data = getdata("../data/data1101_1208.txt")
 
 
     # =============================================
@@ -977,7 +977,7 @@ def main():
     # ============================
     ## For TESTING
 
-    testdata = getdata("data1101_1208.txt")
+    testdata = getdata("../data/data1101_1208.txt")
     scaled_testdata, testmin, testmax = MinMaxScaling(testdata)
     x_test = gen_input(scaled_testdata, nx)
     y_test = gen_labels(scaled_testdata, x_test, 1)
